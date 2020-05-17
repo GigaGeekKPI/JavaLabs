@@ -1,5 +1,4 @@
-package com.Jlabs.EurekaClient.Error;
-
+package com.Jlabs.eurekaclient.Error;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

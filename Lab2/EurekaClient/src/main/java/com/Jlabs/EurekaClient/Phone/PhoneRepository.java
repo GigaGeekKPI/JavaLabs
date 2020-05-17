@@ -1,4 +1,4 @@
-package com.Jlabs.EurekaClient.Phone;
+package com.Jlabs.eurekaclient.Phone;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

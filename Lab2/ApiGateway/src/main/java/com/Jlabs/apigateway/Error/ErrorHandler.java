@@ -1,4 +1,4 @@
-package com.gateway.apigateway.Error;
+package com.Jlabs.apigateway.Error;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;

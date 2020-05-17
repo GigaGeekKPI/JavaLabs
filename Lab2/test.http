@@ -1,0 +1,25 @@
+### Create purchase
+POST /phone/new?id=1&model=S20&company=Samsung&purchaser=Kirill&version=global&price=900 HTTP/1.1
+Host: localhost:8080
+
+### Create another purchase for demonstration
+POST /phone/new?id=2&model=P40&company=Huawei&purchaser=Danil&version=global&price=200 HTTP/1.1
+Host: localhost:8080
+
+### Update purchase by model name
+POST /update?model=S20&company=Samsung&version=China&price=444 HTTP/1.1
+Host: localhost:8080
+
+### Get all purchases
+GET /phone HTTP/1.1
+Host: localhost:8080
+
+### Get special purchase by id
+GET /2? HTTP/1.1
+Host: localhost:8080
+
+### Delete purchase
+DELETE /1? HTTP/1.1
+Host: localhost:8080
+
+###

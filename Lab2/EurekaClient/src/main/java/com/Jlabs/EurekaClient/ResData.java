@@ -1,4 +1,4 @@
-package com.Jlabs.EurekaClient;
+package com.Jlabs.eurekaclient;
 
 public class ResData<T> {
     private final T data;

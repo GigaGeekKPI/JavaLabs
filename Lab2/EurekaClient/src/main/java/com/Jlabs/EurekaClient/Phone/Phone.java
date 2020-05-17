@@ -1,4 +1,4 @@
-package com.Jlabs.EurekaClient.Phone;
+package com.Jlabs.eurekaclient.Phone;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

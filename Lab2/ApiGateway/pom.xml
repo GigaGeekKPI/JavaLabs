@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.Jlabs</groupId>
-	<artifactId>EurekaClient</artifactId>
+	<artifactId>apigateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>EurekaClient</name>
+	<name>apigateway</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

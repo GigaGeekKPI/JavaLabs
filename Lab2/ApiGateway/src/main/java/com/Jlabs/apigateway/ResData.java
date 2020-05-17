@@ -1,4 +1,4 @@
-package com.gateway.apigateway;
+package com.Jlabs.apigateway;
 
 public class ResData<T> {
     private final T data;

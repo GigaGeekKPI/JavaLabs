@@ -1,6 +1,6 @@
-package com.Jlabs.EurekaClient.Phone;
+package com.Jlabs.eurekaclient.Phone;
 
-import com.Jlabs.EurekaClient.ResData;
+import com.Jlabs.eurekaclient.ResData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -40,11 +40,11 @@ public class PhoneController {
 
     @RequestMapping(path="/new", method = RequestMethod.POST)
     public @ResponseBody ResData<String> addPhone(@RequestParam(value = "id", required = true) Integer id,
-                                         @RequestParam(value = "model", required = true) String model,
-                                         @RequestParam(value = "company", required = true) String company,
-                                         @RequestParam(value = "purchaser", required = true) String purchaser,
-                                         @RequestParam(value = "version", required = true) String version,
-                                         @RequestParam(value = "price", required = true) Float price) throws ParseException {
+                                                  @RequestParam(value = "model", required = true) String model,
+                                                  @RequestParam(value = "company", required = true) String company,
+                                                  @RequestParam(value = "purchaser", required = true) String purchaser,
+                                                  @RequestParam(value = "version", required = true) String version,
+                                                  @RequestParam(value = "price", required = true) Float price) throws ParseException {
         Phone instance = new Phone();
         Date purchaseDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
         instance.setId(id);
@@ -67,9 +67,9 @@ public class PhoneController {
 
     @RequestMapping(path="/update", method = RequestMethod.POST)
     public @ResponseBody ResData<String> updatePhone(@RequestParam String model,
-                                       @RequestParam String company,
-                                       @RequestParam String version,
-                                       @RequestParam Float price) throws ParseException {
+                                                     @RequestParam String company,
+                                                     @RequestParam String version,
+                                                     @RequestParam Float price) throws ParseException {
         repository.customUpdate(model, company, version, price);
         return new ResData<String>("Updated", instanceId);
     }

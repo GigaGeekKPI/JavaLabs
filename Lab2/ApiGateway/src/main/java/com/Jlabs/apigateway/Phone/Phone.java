@@ -1,4 +1,4 @@
-package com.gateway.apigateway.Phone;
+package com.Jlabs.apigateway.Phone;
 
 import java.util.Date;
 

@@ -1,6 +1,6 @@
-package com.gateway.apigateway.Phone;
+package com.Jlabs.apigateway.Phone;
 
-import com.gateway.apigateway.ResData;
+import com.Jlabs.apigateway.ResData;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,0 +1,50 @@
+version: '3.7'
+services:
+  mysql:
+    hostname: mysql
+    image: mysql:5.7
+    restart: always
+    logging:
+      driver: none
+    environment:
+      MYSQL_DATABASE: 'jlabs'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: '12345'
+      MYSQL_ROOT_PASSWORD: '12345'
+    ports:
+      - '3306:3306'
+
+  eurekaserver:
+    hostname: eurekaserver
+    build:
+      context: eurekaserver
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    depends_on:
+      - mysql
+
+  apigateway:
+    hostname: apigateway
+    environment:
+      - EUREKA_SERVER=http://eurekaserver:8761/eureka
+    build:
+      context: apigateway
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - eurekaserver
+
+  phone-app:
+    hostname: phone-app
+    environment:
+      - EUREKA_SERVER=http://eurekaserver:8761/eureka
+      - MYSQL=mysql:3306
+    build:
+      context: eurekaclient
+      dockerfile: Dockerfile
+    ports:
+      - "8081-8082:8081"
+    depends_on:
+      - apigateway
