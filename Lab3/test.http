@@ -1,0 +1,47 @@
+### Api-gateway config
+GET http://localhost:8080/config
+Content-type: application/json
+
+### Service (instance 1) config
+GET http://localhost:8082/config
+Content-type: application/json
+
+### Service (instance 2) config
+GET http://localhost:8083/config
+Content-type: application/json
+
+### Config refresh
+POST http://localhost:8080/actuator/refresh
+
+### Config refresh
+POST http://localhost:8082/actuator/refresh
+
+### Bus refresh
+POST http://localhost:8082/actuator/bus-refresh
+
+### Configs in config server
+GET http://localhost:8888/client/default
+Content-type: application/json
+
+
+### Create another purchase for demonstration
+POST /phone/new?id=1&model=P40&company=Huawei&purchaser=Danil&version=global&price=200 HTTP/1.1
+Host: localhost:8080
+
+### Update purchase by model name
+POST /update?model=S20&company=Samsung&version=China&price=444 HTTP/1.1
+Host: localhost:8080
+
+### Get all purchases
+GET /phone HTTP/1.1
+Host: localhost:8080
+
+### Get special purchase by id
+GET /2? HTTP/1.1
+Host: localhost:8080
+
+### Delete purchase
+DELETE /1? HTTP/1.1
+Host: localhost:8080
+
+###

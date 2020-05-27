@@ -1,0 +1,98 @@
+version: '3.7'
+services:
+  mysql:
+    hostname: mysql
+    image: mysql:5.7
+    restart: always
+    logging:
+      driver: none
+    environment:
+      MYSQL_DATABASE: 'jlabs'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: '12345'
+      MYSQL_ROOT_PASSWORD: '12345'
+    ports:
+      - '3306:3306'
+
+  rabbit:
+    hostname: rabbit
+    image: "rabbitmq:3"
+    logging:
+      driver: none
+    environment:
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    depends_on:
+      - mysql
+
+  eurekaserver:
+    hostname: eurekaserver
+    build:
+      context: eurekaserver
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    depends_on:
+      - rabbit
+
+  configserver:
+    hostname: configserver
+    environment:
+      - EUREKA_SERVER=http://eurekaserver:8761/eureka
+    build:
+      context: configserver
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    depends_on:
+      - eurekaserver
+
+  apigateway:
+    hostname: apigateway
+    environment:
+      - EUREKA_SERVER=http://eurekaserver:8761/eureka
+      - CONFIG_SERVER=http://configserver:8888
+      - RABBIT=rabbit
+    build:
+      context: apigateway
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - configserver
+
+  phone-app:
+    hostname: phone-app
+    environment:
+      - EUREKA_SERVER=http://eurekaserver:8761/eureka
+      - CONFIG_SERVER=http://configserver:8888
+      - MYSQL=mysql:3306
+      - RABBIT=rabbit
+      - PORT=8082
+    build:
+      context: eurekaclient
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    depends_on:
+      - apigateway
+
+  phone-app-2:
+    hostname: phone-app-2
+    environment:
+      - EUREKA_SERVER=http://eurekaserver:8761/eureka
+      - CONFIG_SERVER=http://configserver:8888
+      - MYSQL=mysql:3306
+      - RABBIT=rabbit
+      - PORT=8083
+    build:
+      context: eurekaclient
+      dockerfile: Dockerfile
+    ports:
+      - "8083:8083"
+    depends_on:
+      - apigateway
