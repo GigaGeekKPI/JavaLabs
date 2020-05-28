@@ -26,10 +26,10 @@ public class PhoneController {
     @RequestMapping(path = "/config", method = RequestMethod.GET)
     public @ResponseBody Map<String, String> getConfig() {
         HashMap<String, String> configmap = new HashMap<String, String>();
-        configmap.put("gateway prop1", configClientAppConfiguration.getProp1());
-        configmap.put("gateway prop2", configClientAppConfiguration.getProp2());
-        configmap.put("gateway prop3", configClientAppConfiguration.getProp3());
-        configmap.put("gateway prop4", configClientAppConfiguration.getProp4());
+        configmap.put("Jlabs prop1", configClientAppConfiguration.getProp1());
+        configmap.put("Jlabs prop2", configClientAppConfiguration.getProp2());
+        configmap.put("Jlabs prop3", configClientAppConfiguration.getProp3());
+        configmap.put("Jlabs prop4", configClientAppConfiguration.getProp4());
         configmap.putAll(repository.getConfig());
         return configmap;
     }
