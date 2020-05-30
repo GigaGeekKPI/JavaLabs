@@ -65,14 +65,6 @@ public class Phone {
         this.purchaser = purchaser;
     }
 
-    public Date getPurchaseDate() {
-        return purchaseDate;
-    }
-
-    public void setPurchaseDate(Date purchaseDate) {
-        this.purchaseDate = purchaseDate;
-    }
-
     public boolean isDeleted() { return is_deleted; }
 
     public void setDeleted(boolean deleted) { is_deleted = deleted; }

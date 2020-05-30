@@ -1,4 +1,4 @@
-package com.example.consumer;
+package com.Jlabs.consumer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

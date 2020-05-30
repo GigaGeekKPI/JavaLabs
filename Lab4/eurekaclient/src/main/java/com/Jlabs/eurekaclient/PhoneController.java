@@ -52,9 +52,9 @@ public class PhoneController {
     }
 
     @RequestMapping(path = "/phone", method = RequestMethod.POST)
-    ResponseEntity<?> Add(@RequestBody Phone game) {
+    ResponseEntity<?> Add(@RequestBody Phone phone) {
         try {
-            return new ResponseEntity<>(service.Add(game), HttpStatus.OK);
+            return new ResponseEntity<>(service.Add(phone), HttpStatus.OK);
         } catch (CustomException e) {
             return new ResponseEntity<>(e.mes, HttpStatus.BAD_REQUEST);
         } catch (Exception e) {

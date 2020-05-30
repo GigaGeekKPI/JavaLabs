@@ -7,7 +7,7 @@ GET http://localhost:8080/phone/1
 Content-type: application/json
 
 ### Delete purchase
-DELETE http://localhost:8080/ticket/1
+DELETE http://localhost:8080/phone/1
 Content-type: application/json
 
 ### Create purchase
@@ -15,11 +15,11 @@ POST http://localhost:8080/phone
 Content-type: application/json
 
 {
-  "model": "P40",
-  "company": "Huawei",
-  "purchaser": "Danil",
+  "model": "S20",
+  "company": "Samsung",
+  "purchaser": "Kirill",
   "version": "global",
-  "price": "1300"
+  "price": "777"
 }
 
 ### Get all purchases

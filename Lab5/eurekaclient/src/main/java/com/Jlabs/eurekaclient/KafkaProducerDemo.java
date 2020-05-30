@@ -1,4 +1,4 @@
-package com.example.eurekaclient;
+package com.Jlabs.eurekaclient;
 
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.LongSerializer;
@@ -21,11 +21,11 @@ public class KafkaProducerDemo {
         return new KafkaProducer<>(props);
     }
 
-    public void sendMessage(String action, Ticket ticket) throws Exception {
+    public void sendMessage(String action, Phone phone) throws Exception {
         final Producer<Long, String> producer = createProducer();
         try {
             final ProducerRecord<Long, String> record = new ProducerRecord<Long, String>(action,
-                    action + " " + ticket.toString());
+                    action + " " + phone.toString());
 
             RecordMetadata metadata = producer.send(record).get();
             System.out.printf("sent record(key=%s value=%s) meta(partition=%d, offset=%d)",

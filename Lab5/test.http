@@ -1,0 +1,29 @@
+### Get entities
+GET http://localhost:8080/config
+Content-type: application/json
+
+### Get purchase
+GET http://localhost:8080/phone/1
+Content-type: application/json
+
+### Delete purchase
+DELETE http://localhost:8080/phone/1
+Content-type: application/json
+
+### Create purchase
+POST http://localhost:8080/phone
+Content-type: application/json
+
+{
+  "model": "P40",
+  "company": "Huawei",
+  "purchaser": "Danil",
+  "version": "global",
+  "price": "1300"
+}
+
+### Get all purchases
+GET /phone HTTP/1.1
+Host: localhost:8080
+
+###

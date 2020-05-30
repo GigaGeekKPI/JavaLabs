@@ -1,4 +1,4 @@
-package com.example.consumer;
+package com.Jlabs.consumer;
 
 import org.apache.kafka.clients.consumer.*;
 import org.apache.kafka.clients.producer.*;
