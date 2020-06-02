@@ -1,4 +1,4 @@
-package com.Jlabs.ApiGateway;
+package com.Jlabs.AuthClient;
 
 public class ResData<T> {
     private final T data;
