@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @RequestMapping(path="/comment")
 @Controller
+@CrossOrigin
 public class CommentController {
 
     @Autowired

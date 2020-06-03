@@ -9,6 +9,7 @@ import java.text.ParseException;
 import java.util.Optional;
 
 @RequestMapping(path="/purchase")
+@CrossOrigin
 @Controller
 public class PurchaseController {
 

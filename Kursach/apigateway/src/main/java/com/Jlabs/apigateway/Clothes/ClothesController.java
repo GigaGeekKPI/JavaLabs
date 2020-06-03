@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @RequestMapping(path="/clothes")
 @Controller
+@CrossOrigin
 public class ClothesController {
 
     @Autowired
